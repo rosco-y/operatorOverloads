@@ -27,6 +27,11 @@ namespace operatorOverloads
             return new ZClass(lhs._f1 + rhs, lhs._f2 + rhs);
         }
 
+        public override string ToString()
+        {
+            return string.Format("f1:{0}, f2:{1}", _f1, _f2);
+        }
+
         public int Total
         {
             get
@@ -34,5 +39,17 @@ namespace operatorOverloads
                 return _f1 + _f2;
             }
         }
+
+        public static ZClass operator-(ZClass lhs, ZClass rhs)
+        {
+            return new ZClass(lhs._f1 - rhs._f1, lhs._f2 - rhs._f2);
+        }
+
+        public static ZClass operator - (ZClass lhs, int rhs)
+        {
+            return new ZClass(lhs._f1 - rhs, lhs._f2 - rhs);
+        }
+
+
     }
 }
